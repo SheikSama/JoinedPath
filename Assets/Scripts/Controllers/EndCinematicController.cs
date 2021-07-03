@@ -42,7 +42,7 @@ public class EndCinematicController : MonoBehaviour
                     QntCompanionsAliveTxt.text = "Two of the bravest stand beside you... Don't fear what might happen\n Every single one you left behind was for that moment, and they knew that... do they?";
                     break;
                 case 3:
-                    QntCompanionsAliveTxt.text = "The last three heroes stand before the Big Bad Boss with you\n The road was hard, but your party might have a change...\n\n But that is a story for another game";
+                    QntCompanionsAliveTxt.text = "The last three heroes stand before the Big Bad Boss with you\n The road was hard, but your party might have a chance...\n\n But that is a story for another game";
                     break;
                 case 4:
                     QntCompanionsAliveTxt.text = "Four heroes stand by your side, they trust the two companions left behind holding the line.\n This is the chance you were building all this journey.";
