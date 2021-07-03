@@ -59,7 +59,8 @@ public class BigEnemieController : MonoBehaviour
 
         if (entity.gameObject.tag == "Player")
         {
-            entity.gameObject.GetComponent<PlayerController>().isAlive = false;
+            if(entity.gameObject.GetComponent<PlayerController>().CHEAT_INMORTAL==false)
+                entity.gameObject.GetComponent<PlayerController>().isAlive = false;
         }
     }
 }

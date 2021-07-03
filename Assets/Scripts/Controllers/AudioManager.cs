@@ -9,6 +9,10 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip Danger;
     public AudioClip Sad;
+    public AudioClip SadEnding;
+    public AudioClip BirthOfAHero;
+
+
     bool darkChanged = false;
     bool sadChanged = false;
 
@@ -32,7 +36,7 @@ public class AudioManager : MonoBehaviour
                 {
                     StopCoroutine("ChangeSongPart1");
                     StopCoroutine("ChangeSongPart2");
-                    darkChanged = true;
+                    sadChanged = true;
                     StartCoroutine(ChangeSongPart1(Sad, 3));
                 }
                 break;
@@ -78,5 +82,25 @@ public class AudioManager : MonoBehaviour
                 AudioSource.volume=0.21f;
             yield return null;
         }
+    }
+
+
+    public void endGameMusic()
+    {
+
+        if (playerController.alliesAlive > 4)
+        {
+            StopCoroutine("ChangeSongPart1");
+            StopCoroutine("ChangeSongPart2");
+            StartCoroutine(ChangeSongPart1(BirthOfAHero, 2));
+        }
+        else
+        {
+            StopCoroutine("ChangeSongPart1");
+            StopCoroutine("ChangeSongPart2");
+            StartCoroutine(ChangeSongPart1(SadEnding, 2));
+        }
+
+       
     }
 }

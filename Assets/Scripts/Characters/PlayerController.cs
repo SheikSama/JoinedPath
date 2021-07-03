@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip Death;
 
     public float playerSpeed = 10f;
+    public bool CHEAT_INMORTAL =false;
 
 
     Rigidbody2D rigidbody2D;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public bool isAlive = true;
     public bool endGame = false;
     public bool ZeroUntilMidnight = false;
+    bool triggerUsed = false;
 
 
     public int alliesAlive { 
@@ -132,8 +134,9 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else
+        else if(triggerUsed==false)
         {
+            triggerUsed = true;
             EndingScene();
         }
         
@@ -308,7 +311,11 @@ public class PlayerController : MonoBehaviour
         {
             mainCamera.GetComponent<SpawnerManager>().stopSpawns = true;
         }
-        MoveFormation1();
+
+        if (alliesAlive > 1)
+        {
+            MoveFormation1();
+        }
     }
 
     private IEnumerator LerpToPoint(Vector2 destination, float lerpRate)

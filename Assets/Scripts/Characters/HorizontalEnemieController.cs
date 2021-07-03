@@ -87,8 +87,12 @@ public class HorizontalEnemieController : MonoBehaviour
 
         if (entity.gameObject.tag == "Player")
         {
-            entity.gameObject.GetComponent<PlayerController>().isAlive = false;
-            animator.SetBool("IsFighting", isFighting);
+            if (entity.gameObject.GetComponent<PlayerController>().CHEAT_INMORTAL == false)
+            {
+                entity.gameObject.GetComponent<PlayerController>().isAlive = false;
+                animator.SetBool("IsFighting", isFighting);
+            }
+               
         }
     }
 }

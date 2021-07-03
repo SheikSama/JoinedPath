@@ -5,6 +5,8 @@ using UnityEngine;
 public class EndGameController : MonoBehaviour
 {
 
+    public GameObject AudioManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class EndGameController : MonoBehaviour
         if (entity.gameObject.tag == "Player")
         {
             entity.GetComponent<PlayerController>().ZeroUntilMidnight = true;
+            AudioManager.GetComponent<AudioManager>().endGameMusic();
         }
     }
 
